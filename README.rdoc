@@ -1,5 +1,11 @@
 == APP
-![App](http://imageshack.com/a/img538/4731/6sXI5K.gif)
+http://imageshack.com/a/img538/4731/6sXI5K.gif
+
+* CRUD Countries
+
+* CRUD Artists
+
+ * CRUD Albums 
 
 == README
 This README would normally document whatever steps are necessary to get the
