@@ -1,6 +1,9 @@
-<h1>Editing Album</h1>
+<div class="panel panel-default">
+	<div class="panel-heading"><h1>Editing Album</h1></div>
+	<div class="panel-body"><%= render 'form' %></div>
+</div>
 
-<%= render 'form' %>
+<hr>
 
-<%= link_to 'Show', @album %> |
-<%= link_to 'Back', albums_path %>
+<%= link_to 'Show', @album, {:class => 'btn btn-default'}  %> |
+<%= link_to 'Back', albums_path, {:class => 'btn btn-default'} %>

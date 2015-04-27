@@ -1,9 +1,20 @@
-<p id="notice"><%= notice %></p>
+  <span id="notice"><%= notice %></span>
 
-<p>
-  <strong>Name:</strong>
-  <%= @country.name %>
-</p>
 
-<%= link_to 'Edit', edit_country_path(@country) %> |
-<%= link_to 'Back', countries_path %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h1> <%= @country.name %></h1></div>
+    <div class="panel-body">
+      <p><h3>Artists from this country:</h3></p>
+      <% @artists.each do |artist| %>
+      <b><%= artist.name %></b>
+      <% end %>
+      <% if @artists.size < 1 %>
+      <small><i>None</i></small>
+      <% end %>
+    </div>
+  </div>
+  
+
+  <hr>
+  <%= link_to 'Edit', edit_country_path(@country), {:class => 'btn btn-default'} %> 
+  <%= link_to 'Back', countries_path , {:class => 'btn btn-default'}%>

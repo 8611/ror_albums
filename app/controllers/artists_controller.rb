@@ -20,6 +20,7 @@ class ArtistsController < ApplicationController
 
   # GET /artists/1/edit
   def edit
+    @countries = Country.all.map{|n| [n.name, n.id]}
   end
 
   # POST /artists

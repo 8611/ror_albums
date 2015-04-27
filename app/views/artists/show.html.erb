@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
+  <span id="notice"><%= notice %></span>
+  <div class="panel panel-default">
+  	<div class="panel-heading"><h1><%= @artist.name %></h1></div>
+  	<div class="panel-body">
+  		
+  		<p>
+  			<strong>Date start:</strong>
+  			<%= @artist.date_start.strftime("%Y") %>
+  		</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
-</p>
+  		<p>
+  			<strong>Date end:</strong>
+        <% if !@artist.date_end.nil? %>
+  			<%= @artist.date_end.strftime("%Y") %>
+        <% else %>
+          <small><i>present</i></small>
+        <% end %>
+  		</p>
 
-<p>
-  <strong>Date start:</strong>
-  <%= @artist.date_start %>
-</p>
+  		<p>
+  			<strong>Country:</strong>
+  			<%= @artist.country.name %>
+  		</p>
+  	</div>
+  </div>
+  
+  <hr>
 
-<p>
-  <strong>Date end:</strong>
-  <%= @artist.date_end %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @artist.country_id %>
-</p>
-
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+  <%= link_to 'Edit', edit_artist_path(@artist) , {:class => 'btn btn-default'}%> 
+  <%= link_to 'Back', artists_path, {:class => 'btn btn-default'} %>

@@ -1,19 +1,20 @@
-<p id="notice"><%= notice %></p>
+<span id="notice"><%= notice %></span>
+<div class="panel panel-default">
+	<div class="panel-heading"><h1><%= @album.name %> <small><%= @album.date_release.strftime("%Y")%></small></h1></div>
+	<div class="panel-body">
 
-<p>
-  <strong>Name:</strong>
-  <%= @album.name %>
-</p>
+		<p>
+			<strong>Description:</strong>
+			<%= @album.description %>
+		</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @album.description %>
-</p>
+		<p>
+			<strong>Artist:</strong>
+			<%= @album.artist.name %> <small>(<%= @album.artist.country.name %>)</small>
+		</p>
+	</div>
+</div>
+<hr>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @album.artist_id %>
-</p>
-
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<%= link_to 'Edit', edit_album_path(@album) , {:class => 'btn btn-default'}%>
+<%= link_to 'Back', albums_path , {:class => 'btn btn-default'}%>

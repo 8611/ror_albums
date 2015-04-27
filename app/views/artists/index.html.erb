@@ -1,33 +1,46 @@
-<p id="notice"><%= notice %></p>
+<span id="notice"><%= notice %></span>
+<div class="panel panel-default">
+  <div class="panel-heading"><h1>Listing Artists</h1></div>
+  <div class="panel-body">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date start</th>
+          <th>Date end</th>
+          <th>Country</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1>Listing Artists</h1>
+      <tbody>
+        <% @artists.each do |artist| %>
+        <tr>
+          <td><%= artist.name %></td>
+          <td><%= artist.date_start.strftime("%Y") %></td>
+          <td>
+            <% if !artist.date_end.nil? %>
+            <%= artist.date_end.strftime("%Y") %>
+            <% else %>
+            <small><i>present</i></small>
+            <% end %>
+          </td>
+          <td><%= artist.country_id %></td>
+          <td><%= link_to 'Show', artist %></td>
+          <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+          <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date start</th>
-      <th>Date end</th>
-      <th>Country</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @artists.each do |artist| %>
-      <tr>
-        <td><%= artist.name %></td>
-        <td><%= artist.date_start %></td>
-        <td><%= artist.date_end %></td>
-        <td><%= artist.country_id %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Artist', new_artist_path %>
+
+<hr/>
+
+<%= link_to 'New Artist', new_artist_path , {:class => 'btn btn-default'}%>

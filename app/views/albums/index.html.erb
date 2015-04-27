@@ -1,31 +1,33 @@
-<p id="notice"><%= notice %></p>
+<span id="notice"><%= notice %></span>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Listing Albums</h1>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Artist</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1>Listing Albums</h1>
+      <tbody>
+        <% @albums.each do |album| %>
+        <tr>
+          <td><%= album.name %></td>
+          <td><%= album.artist.name %></td>
+          <td><%= link_to 'Show', album %></td>
+          <td><%= link_to 'Edit', edit_album_path(album) %></td>
+          <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<hr>
 
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.name %></td>
-        <td><%= album.description %></td>
-        <td><%= album.artist_id %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Album', new_album_path %>
+<%= link_to 'New Album', new_album_path, {:class => 'btn btn-default'} %>

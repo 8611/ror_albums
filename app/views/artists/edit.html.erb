@@ -1,6 +1,15 @@
-<h1>Editing Artist</h1>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1>Editing Artist</h1>
+	</div>
+	<div class="panel-body">
+		<%= render 'form' %>
+	</div>
+</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+
+<hr>
+
+<%= link_to 'Show', @artist , {:class => 'btn btn-default'} %> 
+<%= link_to 'Back', artists_path , {:class => 'btn btn-default'} %>
