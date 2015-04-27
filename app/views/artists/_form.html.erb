@@ -17,15 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :date_start %><br>
-    <%= f.datetime_select :date_start %>
+    <%= f.datetime_select :date_start, start_year: 1900, :include_blank => true, :default => nil  %>
   </div>
   <div class="field">
     <%= f.label :date_end %><br>
-    <%= f.datetime_select :date_end %>
+    <%= f.datetime_select :date_end, start_year: 1900, :include_blank => true, :default => nil %>
   </div>
   <div class="field">
     <%= f.label :country_id %><br>
-    <%= f.number_field :country_id %>
+    <%= f.select(:country_id, options_for_select(@countries)) %>
   </div>
   <div class="actions">
     <%= f.submit %>
