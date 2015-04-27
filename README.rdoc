@@ -1,5 +1,7 @@
-== README
+== APP
+![App](http://imageshack.com/a/img538/4731/6sXI5K.gif)
 
+== README
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
