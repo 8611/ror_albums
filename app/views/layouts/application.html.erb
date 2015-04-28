@@ -10,6 +10,7 @@
 <div class="container">
 <div class="page-header"><h1><a href="/">Albums</a> <small>with Rails</small></h1></div>
 	<div class="row">
+		<% if user_signed_in?%>
 		<div class="col-md-8">
 			<%= yield %>
 		</div>
@@ -22,9 +23,20 @@
 						<%= link_to "Artists", artists_path, {:class => "list-group-item"} %>
 						<%= link_to "Countries", countries_path, {:class => "list-group-item"} %>
 					</div>
+	
+					<hr>
+					<h4><%= current_user.email %></h4>
+					<div class="list-group">
+						<%= link_to "Logout", destroy_user_session_path, {:method => :delete, :class => "list-group-item"} %>
+					</div>
 				</div>
 			</div>
 		</div>
+		<% else %>
+		<div class="col-md-12">
+			<%= yield %>
+		</div>
+		<% end %>
 	</div>
 </div>
 
