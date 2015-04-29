@@ -6,7 +6,8 @@
     <div class="panel-body">
       <p><h3>Artists from this country:</h3></p>
       <% @artists.each do |artist| %>
-      <b><%= artist.name %></b>
+      <%= artist.name %>
+      <%= "," unless artist == @artists.last %>
       <% end %>
       <% if @artists.size < 1 %>
       <small><i>None</i></small>

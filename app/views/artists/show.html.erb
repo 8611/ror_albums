@@ -21,6 +21,13 @@
   			<strong>Country:</strong>
   			<%= @artist.country.name %>
   		</p>
+        <p>
+        <strong>Albums:</strong>
+        <% @albums.each do |album| %>
+        <%= album.name %>
+        <%= "," unless album == @albums.last %>
+        <% end %>
+      </p>
   	</div>
   </div>
   
